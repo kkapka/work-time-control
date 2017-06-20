@@ -26,7 +26,14 @@ export class LoginComponent implements OnInit {
 	  .then(users => this.users = users)
   }*/
   
-  login(){
+  login(user_login : string, user_password : string){
+	  console.log(user_login);
+	  console.log(user_password);
+	  for(let x of this.users){
+		  if(x.login == user_login && x.password == user_password){
+			  window.location.href ="/employee-dashboard";
+		  }
+	  }
   }
 
 }
