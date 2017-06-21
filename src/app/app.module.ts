@@ -20,6 +20,7 @@ import { ManagerHolidaysComponent } from './manager-holidays/manager-holidays.co
 import { ManagerStatsComponent } from './manager-stats/manager-stats.component';
 import { ManagerMessagesComponent } from './manager-messages/manager-messages.component';
 import { AccountantMessagesComponent } from './accountant-messages/accountant-messages.component';
+import { ScheduleModule } from 'primeng/primeng';
 
 @NgModule({
   declarations: [
@@ -36,13 +37,14 @@ import { AccountantMessagesComponent } from './accountant-messages/accountant-me
     ManagerHolidaysComponent,
     ManagerStatsComponent,
     ManagerMessagesComponent,
-    AccountantMessagesComponent
+    AccountantMessagesComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-	AppRoutingModule
+	AppRoutingModule,
+	ScheduleModule,
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

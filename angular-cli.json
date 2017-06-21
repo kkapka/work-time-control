@@ -18,9 +18,16 @@
       "tsconfig": "tsconfig.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles.css",
+		"../node_modules/font-awesome/css/font-awesome.css",
+		"../node_modules/primeng/resources/themes/omega/theme.css",
+		"../node_modules/primeng/resources/primeng.css",
+		"../node_modules/fullcalendar/dist/fullcalendar.min.css"
       ],
-      "scripts": [],
+      "scripts": [
+	    "../node_modules/moment/min/moment.min.js",
+        "../node_modules/fullcalendar/dist/fullcalendar.min.js"
+	  ],
       "environments": {
         "source": "environments/environment.ts",
         "dev": "environments/environment.ts",
