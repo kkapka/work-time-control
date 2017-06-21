@@ -6,13 +6,13 @@ import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map'
   
 @Injectable()
- export class UsersService{
-	private usersUrl = 'api/allUsers';
+ export class HolidayService{
+	private holidayUrl = 'api/allHolidays';
 	
 	constructor(private http: Http) { }
 	
-	getUsers(){
-	return this.http.get(this.usersUrl)
+	getHolidays(){
+	return this.http.get(this.holidayUrl)
       .map(res => res.json());
 	
   }
