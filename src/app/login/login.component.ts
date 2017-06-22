@@ -22,14 +22,7 @@ export class LoginComponent implements OnInit {
 	  if(this._cookieService.get("login")!=null){
 		window.location.href ="/"+this._cookieService.get("type")+"-dashboard";
 	  }
-	  //this.getUsers();
   }
-  
-  /*getUsers(): void{
-	  this.userService
-	  .getUsers()
-	  .then(users => this.users = users)
-  }*/
   
   login(user_login : string, user_password : string){
 	  console.log(user_login);

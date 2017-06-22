@@ -8,7 +8,10 @@ import { LoginComponent } from './login/login.component';
 import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashboard.component';
 import { ManagerDashboardComponent } from './manager-dashboard/manager-dashboard.component';
 import { AccountantDashboardComponent } from './accountant-dashboard/accountant-dashboard.component';
+
 import { CookieService } from 'angular2-cookie/services/cookies.service';
+import { HolidayService } from '../../services/holiday.service';
+import { UsersService } from '../../services/user.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { EmployeeMessagesComponent } from './employee-messages/employee-messages.component';
@@ -46,7 +49,7 @@ import { ScheduleModule } from 'primeng/primeng';
 	AppRoutingModule,
 	ScheduleModule,
   ],
-  providers: [CookieService],
+  providers: [CookieService, HolidayService, UsersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
