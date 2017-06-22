@@ -24,8 +24,9 @@ import { ManagerStatsComponent } from './manager-stats/manager-stats.component';
 import { ManagerMessagesComponent } from './manager-messages/manager-messages.component';
 import { AccountantMessagesComponent } from './accountant-messages/accountant-messages.component';
 import { ScheduleModule } from 'primeng/primeng';
-import {DataTableModule,SharedModule} from 'primeng/primeng';
+import { DataTableModule,SharedModule } from 'primeng/primeng';
 import { ManagerDashboardHomeComponent } from './manager-dashboard-home/manager-dashboard-home.component';
+import { DataListModule } from 'primeng/primeng';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { ManagerDashboardHomeComponent } from './manager-dashboard-home/manager-
 	ScheduleModule,
 	DataTableModule,
 	SharedModule,
+	DataListModule,
   ],
   providers: [CookieService, HolidayService, UsersService],
   bootstrap: [AppComponent]

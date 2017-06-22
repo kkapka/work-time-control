@@ -1,3 +1,16 @@
-<p>
-  manager-fire-candidates works!
-</p>
+<p-dataList [value]="missed" rows="3">
+    <p-header>TOP 3 employess to fire: </p-header>
+    <template let-x pTemplate="item">
+	
+		<div class="card card-outline-secondary text-center">
+	  <div class="card-block">
+		<blockquote class="card-blockquote">
+		<p>Name and surname: {{x.name}} {{x.surname}}</p>
+		<p>Days without work: {{x.missed}}</p>
+		</blockquote>
+	  </div>
+	</div>
+	
+	
+    </template>
+</p-dataList>
