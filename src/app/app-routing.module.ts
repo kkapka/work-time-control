@@ -14,6 +14,7 @@ import { ManagerHolidaysComponent } from './manager-holidays/manager-holidays.co
 import { ManagerOvertimesComponent } from './manager-overtimes/manager-overtimes.component';
 import { ManagerMessagesComponent } from './manager-messages/manager-messages.component';
 import { ManagerStatsComponent } from './manager-stats/manager-stats.component';
+import { ManagerDashboardHomeComponent } from './manager-dashboard-home/manager-dashboard-home.component';
 
 import { AccountantMessagesComponent } from './accountant-messages/accountant-messages.component';
 import { AccountantSalariesComponent } from './accountant-salaries/accountant-salaries.component';
@@ -29,6 +30,8 @@ const routes: Routes = [
 		]},
 	{ path: 'manager-dashboard', component: ManagerDashboardComponent,
 		children: [
+			{ path: '', redirectTo: '/manager-dashboard/home', pathMatch: 'full' },
+			{path: 'home', component: ManagerDashboardHomeComponent},
 			{path: 'fire-candidates', component: ManagerFireCandidatesComponent},
 			{path: 'holidays', component: ManagerHolidaysComponent},
 			{path: 'overtimes', component: ManagerOvertimesComponent},

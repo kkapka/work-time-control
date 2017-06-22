@@ -19,6 +19,7 @@
 	<button (click)="logout()" type="button" class="btn btn-danger btn-lg btn-block " >Logout</button>
   </div>
   <div *ngSwitchCase="'manager'">
+	<button routerLink="/manager-dashboard/" type="button" class="btn btn-info btn-lg btn-block ">Home</button>
 	<button routerLink="/manager-dashboard/holidays" type="button" class="btn btn-primary btn-lg btn-block ">Holiday calendar</button>
 	<button routerLink="/manager-dashboard/fire-candidates" type="button" class="btn btn-primary btn-lg btn-block ">Top 3 candidates to fire</button>
 	<button routerLink="/manager-dashboard/messages" type="button" class="btn btn-primary btn-lg btn-block ">Messages</button>

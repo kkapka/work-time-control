@@ -8,7 +8,6 @@ import { CookieService } from 'angular2-cookie/core';
   styleUrls: ['./manager-dashboard.component.css']
 })
 export class ManagerDashboardComponent implements OnInit {
-
   constructor(private _cookieService:CookieService) { }
 
   ngOnInit() {
