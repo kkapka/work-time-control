@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CookieService } from 'angular2-cookie/core';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,7 @@ import { CookieService } from 'angular2-cookie/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-	constructor(private _cookieService:CookieService) { }
+	constructor(private _cookieService:CookieService, private _location: Location) { }
 	
 	ngOnInit() {
 		
@@ -28,5 +29,38 @@ export class AppComponent {
 		this._cookieService.remove("type");
 		window.location.href = "/login";
 		
+	}
+	
+  
+	  getType(){
+		  return this._cookieService.get("type");
+	  }
+	  
+	shouldBeButtonsForManager(){
+		if(this.getType()=="manager"){
+			return "";
+		}
+		
+		return "invisible";
+	}
+	
+	shouldBeButtonsForEmployee(){
+		if(this.getType()=="employee"){
+			return "";
+		}
+		
+		return "invisible";
+	}
+	
+	shouldBeButtonsForAccountant(){
+		if(this.getType()=="accountant"){
+			return "";
+		}
+		
+		return "invisible";
+	}
+	
+	goBack(){
+		this._location.back();
 	}
 }

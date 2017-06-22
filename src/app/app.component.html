@@ -1,7 +1,39 @@
 <div class="container">
 <div class="row">
-<div class="col-2">
-<button (click)="logout()" type="button" class="btn btn-success btn-lg {{shouldBeLogout()}}" >Logout</button>
+<div class="col-14">
+</div>
+<div class="col d-block alert alert-success {{shouldBeLogout()}}" role="alert">
+  Hello! You are logged in as <strong>{{getType()}}</strong>
+</div>
+</div>
+</div>
+
+<div class="container" ng-app="">
+<div class="row">
+<div class="col-14">
+<div [ngSwitch]="getType()">
+  <div *ngSwitchCase="'employee'" >
+	<button routerLink="/employee-dashboard/holiday" type="button" class="btn btn-primary btn-lg btn-block ">Holiday</button>
+	<button routerLink="/employee-dashboard/messages" type="button" class="btn btn-primary btn-lg btn-block ">Messages</button>
+	<button (click)="goBack()" type="button" class="btn btn-warning btn-lg btn-block " >Back</button>
+	<button (click)="logout()" type="button" class="btn btn-danger btn-lg btn-block " >Logout</button>
+  </div>
+  <div *ngSwitchCase="'manager'">
+	<button routerLink="/manager-dashboard/holidays" type="button" class="btn btn-primary btn-lg btn-block ">Holiday calendar</button>
+	<button routerLink="/manager-dashboard/fire-candidates" type="button" class="btn btn-primary btn-lg btn-block ">Top 3 candidates to fire</button>
+	<button routerLink="/manager-dashboard/messages" type="button" class="btn btn-primary btn-lg btn-block ">Messages</button>
+	<button routerLink="/manager-dashboard/overtimes" type="button" class="btn btn-primary btn-lg btn-block ">Overtimes</button>
+	<button routerLink="/manager-dashboard/stats" type="button" class="btn btn-primary btn-lg btn-block ">Stats</button>
+	<button (click)="goBack()" type="button" class="btn btn-warning btn-lg btn-block " >Back</button>
+	<button (click)="logout()" type="button" class="btn btn-danger btn-lg btn-block " >Logout</button>
+  </div>
+  <div *ngSwitchCase="'accountant'" >
+	<button routerLink="/accountant-dashboard/salaries" type="button" class="btn btn-primary btn-lg btn-block">Salaries</button>
+	<button routerLink="/accountant-dashboard/messages" type="button" class="btn btn-primary btn-lg btn-block">Messages</button>
+	<button (click)="goBack()" type="button" class="btn btn-warning btn-lg btn-block" >Back</button>
+	<button (click)="logout()" type="button" class="btn btn-danger btn-lg btn-block" >Logout</button>
+  </div>
+</div>
 </div>
 <div class="col">
 <router-outlet></router-outlet>

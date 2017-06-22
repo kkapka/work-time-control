@@ -41,6 +41,10 @@ import { ScheduleModule } from 'primeng/primeng';
     ManagerStatsComponent,
     ManagerMessagesComponent,
     AccountantMessagesComponent,
+    ManagerFireCandidatesComponent,
+    ManagerFireCandidatesComponent,
+    ManagerFireCandidatesComponent,
+    ManagerFireCandidatesComponent,
   ],
   imports: [
     BrowserModule,
