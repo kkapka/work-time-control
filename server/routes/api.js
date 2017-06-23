@@ -79,4 +79,58 @@ router.get('/allHolidays', function (req, res) {
   });
 });
 
+router.get('/allHolidayOrOvertimeRequests', function (req, res) {
+  MongoClient.connect(url, function(err, db) {
+  assert.equal(null, err);
+  console.log("Connected correctly to server");
+  
+  var collection = db.collection('holidayOrOvertimeRequests');
+  
+	collection.find({}).toArray(function(err, requests) {
+	assert.equal(err, null);
+	res.jsonp(requests);
+	
+  });
+  
+  db.close();
+  });
+});
+
+/* POST to Add User Service */
+router.post('/sendMessage', function(req, res) {
+	MongoClient.connect(url, function(err, db) {
+		  assert.equal(null, err);
+			console.log("Connected correctly to server");
+		
+		// Get our form values. These rely on the "name" attributes
+		var to = req.body.to;
+		var text = req.body.text;
+		
+		console.log("to: "+to);
+		console.log("text: "+text);
+
+		// Set our collection
+		var collection = db.collection('messages');
+		    collection.insert({
+        "read" : false,
+        "text" : text,
+		"to" : to,
+		}, function (err, doc) {
+			if (err) {
+				// If it failed, return error
+				console.log("error with adding document");
+				res.send("There was a problem with sending information to database");
+			}
+			else {
+				// And forward to success page
+				console.log("document was added successfully");
+				res.redirect("/login");
+			}
+		});
+		
+		db.close();
+  });
+	
+});
+
 module.exports = router;

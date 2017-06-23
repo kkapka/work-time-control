@@ -3,6 +3,7 @@ import { UsersService } from '../../../services/user.service';
 
 import { User } from '../../../model/user';
 import { CookieService } from 'angular2-cookie/core';
+import {DropdownModule} from 'primeng/primeng';
 
 @Component({
   selector: 'app-login',
