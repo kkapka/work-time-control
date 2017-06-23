@@ -5,6 +5,7 @@ const router = express.Router();
 
 // db url
 var url = 'mongodb://localhost:27017/work-time-control';
+var mongodb     = require('mongodb');
 
 /* GET api listing. */
 router.get('/', (req, res) => {
@@ -125,6 +126,79 @@ router.post('/sendMessage', function(req, res) {
 				// And forward to success page
 				console.log("document was added successfully");
 				res.redirect("/login");
+			}
+		});
+		
+		db.close();
+  });
+	
+});
+
+router.post('/updateRequestStatus', function(req, res) {
+	MongoClient.connect(url, function(err, db) {
+		  assert.equal(null, err);
+			console.log("Connected correctly to server");
+		
+		// Get our form values. These rely on the "name" attributes
+		var id = req.body.id;
+		var status = req.body.status;
+		
+		console.log("to: "+id);
+		console.log("text: "+status);
+
+		// Set our collection
+		var collection = db.collection('holidayOrOvertimeRequests');
+		    collection.update({
+        "_id" : new mongodb.ObjectID(id),
+		},{$set:{"status":status}}
+		, function (err, doc) {
+			if (err) {
+				// If it failed, return error
+				console.log("error with adding document");
+				res.send("There was a problem with sending information to database");
+			}
+			else {
+				// And forward to success page
+				console.log("document was updated successfully");
+				res.redirect("/login");
+			}
+		});
+		
+		db.close();
+  });
+	
+});
+
+router.post('/addHoliday', function(req, res) {
+	MongoClient.connect(url, function(err, db) {
+		  assert.equal(null, err);
+			console.log("Connected correctly to server");
+		
+		// Get our form values. These rely on the "name" attributes
+		var user = req.body.user;
+		var from = req.body.from;
+		var to   = req.body.to;
+		
+		console.log("user: "+user);
+		console.log("from: "+from);
+		console.log("to: "+to);
+
+		// Set our collection
+		var collection = db.collection('holiday');
+		    collection.insert({
+        "employee" : user,
+        "from" : from,
+		"to" : to,
+		}, function (err, doc) {
+			if (err) {
+				// If it failed, return error
+				console.log("error with adding document");
+				res.send("There was a problem with sending information to database");
+			}
+			else {
+				// And forward to success page
+				console.log("document was added successfully");
+				res.redirect("/manager-dashboard/overtimes");
 			}
 		});
 		

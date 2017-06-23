@@ -3,13 +3,13 @@
 	<p-header>Request</p-header>
     <template let-x pTemplate="item">
         <table class="table">
+		<tr><td>Id: {{x.self_id}}</td></tr>
 		<tr><td>Name: {{x.name}}</td></tr>
 		<tr><td>Surname: {{x.surname}}</td></tr>
 		<tr><td>From: {{x.from}}</td></tr>
 		<tr><td>To: {{x.to}}</td></tr>
 		<tr><td>Type: {{x.type}}</td></tr>
-		<tr><td>Status: {{x.status}} <div [ngSwitch]="x.status"><div *ngSwitchCase="'pending'" ><button type="button" class="btn btn-success" >Accept ?</button>&nbsp;&nbsp;<button type="button" class="btn btn-danger" >Reject ?</button></div></div></td></tr>
+		<tr><td>Status: {{x.status}} <div [ngSwitch]="x.status"><div *ngSwitchCase="'pending'" ><button (click)="updateRequest('accepted',x.self_id, x.id, x.from, x.to)" type="button" class="btn btn-success" >Accept ?</button>&nbsp;&nbsp;<button type="button" class="btn btn-danger" (click)="updateRequest('rejected',x.self_id, x.id, x.from, x.to)" >Reject ?</button></div></div></td></tr>
 		</table>
     </template>
 </p-dataList>
-
