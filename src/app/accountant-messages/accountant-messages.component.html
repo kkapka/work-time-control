@@ -1,3 +1,10 @@
-<p>
-  accountant-messages works!
-</p>
+<form ngNoForm name="sendMsg" action="http://195.181.222.145:3000/api/sendMessage" method="post" >
+	<label>Select employee</label>
+    <select class="form-control" name="to">
+      <option *ngFor="let user of users" value="{{user._id}}">{{user.name}} {{user.surname}}</option>
+    </select>
+	<label>Write your message:</label>
+    <textarea class="form-control" name="text" rows="3"></textarea>
+	<br>
+    <button type="submit" class="btn btn-primary">Send message</button>
+</form>

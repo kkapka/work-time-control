@@ -1,3 +1,6 @@
-<p>
-  accountant-salaries works!
-</p>
+<p-dataTable [value]="salaries" [rows]="5" [paginator]="true">
+    <p-column filter="true" sortable="true" field="name" header="Name"></p-column>
+    <p-column filter="true" sortable="true" field="surname" header="Surname"></p-column>
+    <p-column sortable="true" field="workedHours" header="worked hours"></p-column>
+	<p-column sortable="true" field="salary" header="salary"></p-column>
+</p-dataTable>

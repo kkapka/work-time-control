@@ -40,6 +40,7 @@ const routes: Routes = [
 	]},
 	{ path: 'accountant-dashboard', component: AccountantDashboardComponent, 
 		children: [
+			{ path: '', redirectTo: '/accountant-dashboard/salaries', pathMatch: 'full' },
 			{path: 'salaries', component: AccountantSalariesComponent},
 			{path: 'messages', component: AccountantMessagesComponent}
 		]}
