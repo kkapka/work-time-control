@@ -25,6 +25,7 @@ const routes: Routes = [
 	{ path: 'login', component: LoginComponent },
 	{ path: 'employee-dashboard', component: EmployeeDashboardComponent, 
 		children: [
+			{ path: '', redirectTo: '/employee-dashboard/holiday', pathMatch: 'full' },
 			{path: 'messages', component: EmployeeMessagesComponent},
 			{path: 'holiday', component: EmployeeHolidayComponent}
 		]},
