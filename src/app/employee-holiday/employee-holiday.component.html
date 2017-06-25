@@ -1,3 +1,12 @@
-<p>
-  employee-holiday works!
-</p>
+<h1 *ngFor="let c of requests">{{c.name}}</h1>
+<p-dataList [value]="user_requests" paginator="true" rows="2">
+	<p-header>Request</p-header>
+    <template let-x pTemplate="item">
+        <table class="table">
+		<tr><td>From: {{x.from}}</td></tr>
+		<tr><td>To: {{x.to}}</td></tr>
+		<tr><td>Type: {{x.type}}</td></tr>
+		<tr><td>Status: {{x.status}}</td></tr>
+		</table>
+    </template>
+</p-dataList>
