@@ -134,6 +134,49 @@ router.post('/sendMessage', function(req, res) {
 	
 });
 
+
+router.post('/addRequest', function(req, res) {
+	MongoClient.connect(url, function(err, db) {
+		  assert.equal(null, err);
+			console.log("Connected correctly to server");
+		
+		// Get our form values. These rely on the "name" attributes
+		var user = req.body.user;
+		var from = req.body.from;
+		var to = req.body.to;
+		var type = req.body.type;
+		
+		console.log("user: "+user);
+		console.log("from: "+from);
+		console.log("to: "+to);
+		console.log("type: "+type);
+
+		var collection = db.collection('holidayOrOvertimeRequests');
+		    collection.insert({
+        "user" : user,
+        "from" : from,
+		"to" : to,
+		"type" : type,
+		"status" : "pending",
+		}, function (err, doc) {
+			if (err) {
+				// If it failed, return error
+				console.log("error with adding document");
+				res.send("There was a problem with sending information to database");
+			}
+			else {
+				// And forward to success page
+				console.log("document was added successfully");
+				res.redirect("/employee-dashboard/");
+			}
+		});
+		
+		db.close();
+  });
+	
+});
+
+
 router.post('/updateRequestStatus', function(req, res) {
 	MongoClient.connect(url, function(err, db) {
 		  assert.equal(null, err);

@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 
 import { EmployeeMessagesComponent } from './employee-messages/employee-messages.component';
 import { EmployeeHolidayComponent } from './employee-holiday/employee-holiday.component';
+import { EmployeeBookComponent } from './employee-book/employee-book.component';
 
 import { ManagerFireCandidatesComponent } from './manager-fire-candidates/manager-fire-candidates.component';
 import { ManagerHolidaysComponent } from './manager-holidays/manager-holidays.component';
@@ -27,7 +28,8 @@ const routes: Routes = [
 		children: [
 			{ path: '', redirectTo: '/employee-dashboard/holiday', pathMatch: 'full' },
 			{path: 'messages', component: EmployeeMessagesComponent},
-			{path: 'holiday', component: EmployeeHolidayComponent}
+			{path: 'holiday', component: EmployeeHolidayComponent},
+			{path: 'book', component: EmployeeBookComponent}
 		]},
 	{ path: 'manager-dashboard', component: ManagerDashboardComponent,
 		children: [

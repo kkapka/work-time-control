@@ -30,6 +30,9 @@ import { DataTableModule,SharedModule } from 'primeng/primeng';
 import { ManagerDashboardHomeComponent } from './manager-dashboard-home/manager-dashboard-home.component';
 import { DataListModule } from 'primeng/primeng';
 import { ChartsModule } from 'ng2-charts';
+import { EmployeeBookComponent } from './employee-book/employee-book.component';
+import {CalendarModule} from 'primeng/primeng';
+
 
 @NgModule({
   declarations: [
@@ -52,6 +55,7 @@ import { ChartsModule } from 'ng2-charts';
     ManagerFireCandidatesComponent,
     ManagerFireCandidatesComponent,
 	ManagerDashboardHomeComponent,
+	EmployeeBookComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,6 +67,7 @@ import { ChartsModule } from 'ng2-charts';
 	SharedModule,
 	DataListModule,
 	ChartsModule,
+	CalendarModule,
   ],
   providers: [CookieService, HolidayService, UsersService],
   bootstrap: [AppComponent]

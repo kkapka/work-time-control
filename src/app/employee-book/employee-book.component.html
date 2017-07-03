@@ -1,0 +1,14 @@
+<form ngNoForm name="sendReq" action="http://195.181.222.145:3000/api/addRequest" method="post" >
+	<label>Select FROM and TO date</label><br>
+	<p-calendar [(ngModel)]="from" [inline]="true"></p-calendar>
+	<p-calendar [(ngModel)]="to" [inline]="true"></p-calendar><br>
+	<label>Select TYPE:</label><br>
+    <select class="form-control" name="type"><br>
+	  <option>holiday</option>
+	  <option>overtime</option>
+    </select>
+	<input type="hidden" name="user" value="{{user}}"/>
+	<input type="hidden" name="from" value="{{from}}"/>
+	<input type="hidden" name="to" value="{{to}}"/>
+    <button type="submit" class="btn btn-primary">Add request</button>
+</form>
